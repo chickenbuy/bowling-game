@@ -1,9 +1,24 @@
 package bowling.game;
 
-public enum FrameType {
-    STRIKE,
+public enum FrameType
+{
+    BONUS(0),
 
-    SPARE,
+    PINS(0),
 
-    PINS
+    SPARE(1),
+
+    STRIKE(2);
+
+    private final int numBonusRolls;
+
+    FrameType(final int numBonusRolls)
+    {
+        this.numBonusRolls = numBonusRolls;
+    }
+
+    public int getNumBonusRolls()
+    {
+        return numBonusRolls;
+    }
 }
