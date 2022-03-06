@@ -29,22 +29,6 @@ public class BowlingGame
     }
 
     /**
-     * Creates a custom {@link BowlingGame}.
-     * @param numberOfFrames The number of frames.
-     * @param numberOfPins The number of pins.
-     * @param strikeSymbol The strike symbol.
-     * @param spareSymbol The spare symbol.
-     * @param missSymbol The miss symbol.
-     * @return The non-null {@link BowlingGame} with custom values.
-     * @throws IllegalArgumentException If numberOfFrames or numberOfPins is not positive.
-     */
-    @NonNull
-    public static BowlingGame createCustomGame(final int numberOfFrames, final int numberOfPins, final char strikeSymbol, final char spareSymbol, final char missSymbol)
-    {
-        return new BowlingGame(numberOfFrames, numberOfPins, strikeSymbol, spareSymbol, missSymbol);
-    }
-
-    /**
      * Constructor for {@link BowlingGame}.
      * @param numberOfFrames The number of frames.
      * @param numberOfPins The number of pins.
@@ -184,11 +168,6 @@ public class BowlingGame
             case SPARE:
             {
                 final int firstRollValue = getRollValue(frameString.charAt(0));
-                // This check is here if the number of pins is less than 9.
-                if (firstRollValue > numberOfPins)
-                {
-                    throw new IllegalArgumentException(String.format("Number of pins exceeds limit of %d.", numberOfPins));
-                }
                 return Frame.newBuilder().withFrameType(frameType).withFirstRollValue(firstRollValue).withSecondRollValue(numberOfPins - firstRollValue).build();
             }
             case PINS:
