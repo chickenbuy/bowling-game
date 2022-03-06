@@ -49,9 +49,12 @@ public class Frame
     /**
      * Constructor for {@link Frame}. Declared private to prevent direct instantiation.
      * @param builder The {@link Builder}.
+     * @throws IllegalStateException If frameType is null.
      */
     private Frame(@NonNull final Builder builder)
     {
+        Preconditions.checkState(builder.frameType != null, "frameType cannot be null.");
+
         frameType = builder.frameType;
         firstRollValue = builder.firstRollValue;
         secondRollValue = builder.secondRollValue;

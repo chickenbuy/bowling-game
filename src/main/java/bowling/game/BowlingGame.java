@@ -59,6 +59,7 @@ public class BowlingGame
     public int calculateScore(@NonNull final String game)
     {
         Preconditions.checkArgument(!StringUtils.isBlank(game), "game cannot be null, empty, or blank");
+
         final List<Frame> frames = parseBowlingGame(game);
         int totalScore = 0;
         int firstRollMultiplier = 1;
@@ -221,7 +222,7 @@ public class BowlingGame
     }
 
     /**
-     * Validates if the bowling game.
+     * Checks if the bowling game is valid.
      * @param frames The array of strings of the frames.
      * @param bonusFrame The bonus frame string.
      * @return True if number of frames is equal to {@link #numberOfFrames} and there are the correct number of rolls in the bonus frame, false otherwise.
